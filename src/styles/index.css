@@ -1,0 +1,19 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --main-background-color: #D5D5D5;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  background-color: var(--main-background-color);
+}

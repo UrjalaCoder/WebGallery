@@ -1,0 +1,17 @@
+.genericButton {
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 10px 20px;
+  color: rgb(50, 50, 50);
+  background-color: var(--main-background-color);
+  cursor: pointer;
+}
+
+.genericButton:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb()
+}
+
+.genericButton-warning {
+  border: 2px solid orange;
+}
