@@ -9,10 +9,12 @@ interface LoginProps {
 
 function Login(props: LoginProps) {
 
-  const [username, setUsername]: any = React.useState<string>('');
-  const [password, setPassword]: any = React.useState<string>('');
+  const [username, setUsername]: any = React.useState<string>('')
+  const [password, setPassword]: any = React.useState<string>('')
+  const [ triedToSubmit, setTriedToSubmit ]: any = React.useState<boolean>(false)
 
   const handleSubmit = () => {
+    setTriedToSubmit(true)
     if (username.length > 0 && password.length > 0) {
       props.onSubmit({ username, password })
     }
@@ -26,6 +28,7 @@ function Login(props: LoginProps) {
           id="usernameInput"
           inputType="text"
           value={username}
+          isError={username.length == 0 && triedToSubmit}
           inputProps={
             { placeholder: "Username" }
           }
@@ -35,11 +38,12 @@ function Login(props: LoginProps) {
           id="passwordInput"
           inputType="password"
           value={password}
+          isError={password.length == 0 && triedToSubmit}
           inputProps={
             { placeholder: "Password" }
           }
         />
-        <GenericButton onClick={() => console.log("Click")} type="default" text="Click me!" />
+        <GenericButton onClick={() => handleSubmit()} type="default" text="Click me!" />
       </form>
     </div>
   )
