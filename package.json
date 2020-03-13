@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.5",
     "@types/redux-saga": "^0.10.5",
     "express": "^4.17.1",
+    "firebase-admin": "^8.10.0",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "react": "^16.13.0",
