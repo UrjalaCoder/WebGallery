@@ -1,4 +1,4 @@
-import { UserCredentials } from '../../common/constants'
+import { UserCredentials, LoginCredentials } from '../../common/constants'
 
 type ACTION =
     'LOGIN'
@@ -20,11 +20,43 @@ export interface LoginAction extends Action {
   };
 }
 
+export interface LoginRequestAction extends Action {
+  type: 'LOGIN_REQUEST';
+  payload: {
+    username: string;
+    password: string;
+  };
+}
+
 export interface LogoutAction extends Action {
   type: 'LOGOUT';
   payload: {
     userId: string;
   };
+}
+
+export interface GalleryLoadRequestAction extends Action {
+  type: 'GALLERY_LOAD_REQUEST';
+  payload: {
+    userId: string;
+  };
+}
+
+export interface GalleryLoadAction extends Action {
+  type: 'GALLERY_LOAD';
+  payload: {
+    urls: string[];
+  };
+}
+
+export function loginRequestAction({ username, password }: LoginCredentials): LoginRequestAction {
+	return {
+		type: 'LOGIN_REQUEST',
+		payload: {
+			username,
+			password
+		}
+	}
 }
 
 export function loginAction({ username, userId }: UserCredentials): LoginAction {
@@ -42,6 +74,24 @@ export function logoutAction({ userId }: { userId: string }): LogoutAction {
 		type: 'LOGOUT',
 		payload: {
 			userId
+		}
+	}
+}
+
+export function galleryLoadRequestAction({ userId }: { userId: string }): GalleryLoadRequestAction {
+	return {
+		type: 'GALLERY_LOAD_REQUEST',
+		payload: {
+			userId
+		}
+	}
+}
+
+export function galleryLoadAction({ urls }: { urls: string[] }): GalleryLoadAction {
+	return {
+		type: 'GALLERY_LOAD',
+		payload: {
+			urls
 		}
 	}
 }

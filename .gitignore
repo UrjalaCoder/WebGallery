@@ -3,3 +3,4 @@ dist-server/
 /node_modules
 package-lock.json
 service_account_key.json
+firebase-config.ts
