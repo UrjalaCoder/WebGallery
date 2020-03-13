@@ -7,13 +7,13 @@ interface LoginCredentials {
 }
 
 interface LandingpageProps {
-  
+
 }
 
 function Landingpage() {
 
   const handleLogin = ({ password, username }: LoginCredentials) => {
-
+    
   }
 
   return (

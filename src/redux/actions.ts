@@ -1,39 +1,47 @@
-import { LoginCredentials } from '../constants/index'
+import { UserCredentials } from '../constants/index'
 
 type ACTION =
     'LOGIN'
-  | 'LOGGED_IN'
+  | 'LOGIN_REQUEST'
   | 'LOGOUT'
-  | 'LOGGED_OUT'
+  | 'LOGOUT_REQUEST'
   | 'GALLERY_LOAD'
-  | 'GALLERY_LOADED'
+  | 'GALLERY_LOAD_REQUEST'
 
-interface Action {
+export interface Action {
   type: ACTION
 }
 
-interface LoginAction extends Action {
+export interface LoginAction extends Action {
   type: 'LOGIN'
-  username: string
-  password: string
+  payload: {
+    username: string
+    userId: string
+  }
 }
 
-interface LogoutAction extends Action {
+export interface LogoutAction extends Action {
   type: 'LOGOUT'
-  userId: string
+  payload: {
+    userId: string
+  }
 }
 
-export function loginAction({ username, password }: LoginCredentials): LoginAction {
+export function loginAction({ username, userId }: UserCredentials): LoginAction {
   return {
     type: 'LOGIN',
-    username,
-    password
+    payload: {
+      username,
+      userId
+    }
   }
 }
 
 export function logoutAction({ userId }: { userId: string }): LogoutAction {
   return {
     type: 'LOGOUT',
-    userId
+    payload: {
+      userId
+    }
   }
 }
